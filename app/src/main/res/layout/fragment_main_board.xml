@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:elevation="4dp"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="게시판 홈"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="16dp"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- 각 버튼에 대한 스타일 지정 -->
+            <!-- MaterialButton 스타일 적용 및 버튼 크기와 그림자 효과 지정 -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/freeBoardBtn"
+                android:layout_width="380dp"
+                android:layout_height="62dp"
+                android:layout_marginBottom="16dp"
+                android:elevation="6dp"
+                android:text="자유 게시판"
+                android:textColor="#000000"
+                app:backgroundTint="#D9D9D9"
+                app:cornerRadius="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/infoBoardBtn"
+                android:layout_width="380dp"
+                android:layout_height="62dp"
+                android:text="정보 게시판"
+                android:textColor="#000000"
+                app:backgroundTint="#D9D9D9"
+                app:cornerRadius="8dp"
+                android:elevation="6dp"
+                android:layout_marginBottom="16dp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/recipeBoardBtn"
+                android:layout_width="380dp"
+                android:layout_height="62dp"
+                android:text="레시피 게시판"
+                android:textColor="#000000"
+                app:backgroundTint="#D9D9D9"
+                app:cornerRadius="8dp"
+                android:elevation="6dp"
+                android:layout_marginBottom="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/marketBoardBtn"
+                android:layout_width="380dp"
+                android:layout_height="62dp"
+                android:text="장터 게시판"
+                android:textColor="#000000"
+                app:backgroundTint="#D9D9D9"
+                app:cornerRadius="8dp"
+                android:elevation="6dp"
+                android:layout_marginBottom="16dp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/businessBoardBtn"
+                android:layout_width="380dp"
+                android:layout_height="62dp"
+                android:text="업소 게시판"
+                android:textColor="#000000"
+                app:backgroundTint="#D9D9D9"
+                app:cornerRadius="8dp"
+                android:elevation="6dp"
+                android:layout_marginBottom="16dp" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bestPostsBoardBtn"
+                android:layout_width="380dp"
+                android:layout_height="62dp"
+                android:text="BEST 게시판"
+                android:textColor="#000000"
+                app:backgroundTint="#D9D9D9"
+                app:cornerRadius="8dp"
+                android:elevation="6dp"
+                android:layout_marginBottom="16dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/hotTopicsBoardBtn"
+                android:layout_width="380dp"
+                android:layout_height="62dp"
+                android:text="HOT 게시판"
+                android:textColor="#000000"
+                app:backgroundTint="#D9D9D9"
+                app:cornerRadius="8dp"
+                android:elevation="6dp"
+                android:layout_marginBottom="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!--  <include
+          layout="@layout/bottom_navigation"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignParentBottom="true" />-->
+
+</RelativeLayout>
