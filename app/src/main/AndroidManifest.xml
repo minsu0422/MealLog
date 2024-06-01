@@ -21,6 +21,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".InputActivity">
+            <!-- 필요한 경우 인텐트 필터 여기에 -->
+        </activity>
+        <activity android:name=".MainScreenActivity">
+            <!-- 필요한 경우 인텐트 필터 여기에 -->
+        </activity>
     </application>
 
 </manifest>
