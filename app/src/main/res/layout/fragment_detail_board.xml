@@ -1,37 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <!-- Toolbar 설정 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        tools:ignore="MissingConstraints" />
+
     <TextView
-        android:id="@+id/textViewTitle"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_alignParentTop="true"
-        android:text="세부 게시판"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="7dp"
+        android:text="게시판"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        tools:ignore="MissingConstraints" />
 
+    <!-- RecyclerView 설정 -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/textViewTitle"
-        android:layout_marginTop="8dp" />
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="63dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <!-- ImageButton을 FrameLayout의 맨 아래 오른쪽에 위치시킴 -->
+    <ImageButton
         android:id="@+id/fabAddPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:contentDescription="새 게시물 추가"
-        app:fabSize="normal" />
-</RelativeLayout>
+        android:src="@drawable/plus" />
+</FrameLayout>

@@ -3,39 +3,39 @@ package com.example.meallog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
-
 public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MealViewHolder> {
+    private List<Meal> meals;
+    private OnMealClickListener listener;
 
-    private List<Meal> meals; // Replace Meal with your data class
-    private OnItemClickListener listener;
-
-    public interface OnItemClickListener {
-        void onItemClick(Meal meal);
+    public interface OnMealClickListener {
+        void onMealClick(Meal meal);
     }
 
-    public MealAdapter(List<Meal> meals, OnItemClickListener listener) {
+    public MealAdapter(List<Meal> meals, OnMealClickListener listener) {
         this.meals = meals;
         this.listener = listener;
     }
 
+    @NonNull
     @Override
-    public MealViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_meal, parent, false);
-        return new MealViewHolder(v);
+    public MealViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_meal, parent, false);
+        return new MealViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(MealViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MealViewHolder holder, int position) {
         Meal meal = meals.get(position);
-        holder.mealRange.setText(meal.getRange());
-        holder.mealArrow.setOnClickListener(view -> listener.onItemClick(meal));
+        holder.mealRange.setText(meal.getCalorieRange());
+        holder.imageView.setImageResource(meal.getImageResourceId());
+        holder.itemView.setOnClickListener(v -> listener.onMealClick(meal));
     }
 
     @Override
@@ -43,16 +43,15 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MealViewHolder
         return meals.size();
     }
 
-    static class MealViewHolder extends RecyclerView.ViewHolder {
-        ImageView mealIcon;
-        TextView mealRange;
-        ImageButton mealArrow;
+    public static class MealViewHolder extends RecyclerView.ViewHolder {
+        public TextView mealRange;
+        public ImageView imageView;
 
         public MealViewHolder(View itemView) {
             super(itemView);
-            mealIcon = itemView.findViewById(R.id.mealIcon);
             mealRange = itemView.findViewById(R.id.mealRange);
-            mealArrow = itemView.findViewById(R.id.mealArrow);
+            imageView = itemView.findViewById(R.id.mealIcon);
         }
     }
 }
+
