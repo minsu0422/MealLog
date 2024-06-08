@@ -37,7 +37,7 @@
     <!-- ImageButton을 FrameLayout의 맨 아래 오른쪽에 위치시킴 -->
     <ImageButton
         android:id="@+id/fabAddPost"
-        android:layout_width="wrap_content"
+        android:layout_width="29dp"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="16dp"
