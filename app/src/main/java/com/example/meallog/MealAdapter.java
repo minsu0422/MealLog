@@ -1,3 +1,5 @@
+// MealAdapter.java
+
 package com.example.meallog;
 
 import android.view.LayoutInflater;
@@ -10,13 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
 public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MealViewHolder> {
+
     private List<Meal> meals;
     private OnMealClickListener listener;
-
-    public interface OnMealClickListener {
-        void onMealClick(Meal meal);
-    }
 
     public MealAdapter(List<Meal> meals, OnMealClickListener listener) {
         this.meals = meals;
@@ -26,16 +26,14 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MealViewHolder
     @NonNull
     @Override
     public MealViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_meal, parent, false);
-        return new MealViewHolder(itemView);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_calorie_range, parent, false); // item_calorie_range.xml 사용
+        return new MealViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MealViewHolder holder, int position) {
         Meal meal = meals.get(position);
-        holder.mealRange.setText(meal.getCalorieRange());
-        holder.imageView.setImageResource(meal.getImageResourceId());
-        holder.itemView.setOnClickListener(v -> listener.onMealClick(meal));
+        holder.bind(meal, listener);
     }
 
     @Override
@@ -43,15 +41,30 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MealViewHolder
         return meals.size();
     }
 
-    public static class MealViewHolder extends RecyclerView.ViewHolder {
-        public TextView mealRange;
-        public ImageView imageView;
+    public interface OnMealClickListener {
+        void onMealClick(Meal meal);
+    }
 
-        public MealViewHolder(View itemView) {
+    static class MealViewHolder extends RecyclerView.ViewHolder {
+
+        private TextView calorieRangeView;
+        private ImageView imageView;
+
+        public MealViewHolder(@NonNull View itemView) {
             super(itemView);
-            mealRange = itemView.findViewById(R.id.mealRange);
-            imageView = itemView.findViewById(R.id.mealIcon);
+            calorieRangeView = itemView.findViewById(R.id.calorieRange);
+            imageView = itemView.findViewById(R.id.imageView);
+        }
+
+        public void bind(Meal meal, OnMealClickListener listener) {
+            calorieRangeView.setText(meal.getCalorieRange());
+
+
+            itemView.setOnClickListener(v -> {
+                if (listener != null) {
+                    listener.onMealClick(meal); // meal 객체 전달
+                }
+            });
         }
     }
 }
-

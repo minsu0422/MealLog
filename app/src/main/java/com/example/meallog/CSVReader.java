@@ -1,6 +1,8 @@
 package com.example.meallog;
 
 import android.content.Context;
+import android.util.Log;
+
 import androidx.room.Room;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -30,6 +32,7 @@ public class CSVReader {
                     protein = Float.parseFloat(values[19]);
                     fat = Float.parseFloat(values[20]);
                     carbohydrate = Float.parseFloat(values[22]);
+                    Log.d("CSVReader", "Inserted: " + name);
                 } catch (NumberFormatException e) {
                     // 잘못된 값이 발견되었을 때, 기본값으로 설정하거나 무시할 수 있습니다.
                     // 이 예제에서는 기본값으로 0을 설정합니다.
