@@ -21,11 +21,5 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, InputActivity.class);
             startActivity(intent);
         });
-
-        // 데이터베이스 초기화 및 데이터 삽입 코드를 백그라운드 스레드에서 실행
-        new Thread(() -> {
-            DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
-            databaseHelper.readAndStoreCSV(MainActivity.this);
-        }).start();
     }
 }
