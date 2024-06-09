@@ -1,163 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment"
     tools:ignore="ExtraText">
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Toolbar 설정 -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="7dp"
+        android:text="MealLog"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="63dp"
         android:background="#94AF89"
-        android:orientation="vertical"
-        tools:context=".MeallogMain">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="407dp"
-            android:layout_height="33dp"
-            android:background="#ffffff"
-            android:text=" Meal Log"
-            android:textColor="#000000"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- NavigationView를 화면 하단에 위치시키기 -->
-
-
-        <TextView
-            android:id="@+id/nameTextView"
-            android:layout_width="125dp"
-            android:layout_height="67dp"
-            android:background="#FFFFFF"
-
-            android:textAlignment="center"
-            android:textColor="#616BC5"
-            android:textSize="36sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.244"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/heightweightTextView"
-            android:layout_width="146dp"
-            android:layout_height="40dp"
-            android:background="#FFFFFF"
-            android:text=""
-            android:textAlignment="viewEnd"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.735"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.48" />
-
-        <TextView
-            android:id="@+id/kcalTextview"
-            android:layout_width="149dp"
-            android:layout_height="27dp"
-            android:background="#FFFFFF"
-            android:text=""
-            android:textAlignment="center"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.732"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.528" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
-            android:layout_width="411dp"
-            android:layout_height="297dp"
-            android:background="#F5F5F5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView"
-            app:layout_constraintVertical_bias="1.0">
-
-            <TextView
-                android:id="@+id/remainkcalTextview"
-                android:layout_width="337dp"
-                android:layout_height="57dp"
-                android:background="#E7EFE5"
-                android:gravity="center|left"
-                android:text=""
-                android:textColor="#000000"
-                app:layout_constraintBottom_toBottomOf="@+id/navigationView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.455" />
-
-            <TextView
-                android:id="@+id/takekcalTextview"
-                android:layout_width="336dp"
-                android:layout_height="56dp"
-                android:background="#E7EFE5"
-                android:gravity="center|left"
-                android:text=""
-                android:textColor="#000000"
-                app:layout_constraintBottom_toTopOf="@+id/button"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.493"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.156" />
-
-            <com.google.android.material.navigation.NavigationView
-                android:id="@+id/navigationView"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="bottom"
-                android:background="#E7EFE5"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.996"
-                tools:layout_editor_absoluteX="0dp">
-
-            </com.google.android.material.navigation.NavigationView>
-
-            <Button
-                android:id="@+id/food_recommend"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="60dp"
-                android:background="#00ff0000"
-                android:text="음식 추천 바로가기>"
-                android:textColor="#000000"
-                app:layout_constraintBottom_toBottomOf="@+id/navigationView"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/Person"
-            android:layout_width="177dp"
-            android:layout_height="232dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.148"
-            app:srcCompat="@drawable/person_shape_empty" />
+            android:layout_width="180dp"
+            android:layout_height="300dp"
+            android:layout_marginLeft="115dp"
+            android:layout_marginTop="5dp"
+            app:srcCompat="@drawable/person_shape_05" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="125dp"
+                android:layout_height="55dp"
+                android:background="#FFFFFF"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="홍길동"
+                android:textAlignment="center"
+                android:textSize="34sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/heightweightTextView"
+                        android:layout_width="200dp"
+                        android:layout_height="27dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:paddingTop="5dp"
+                        android:text="TextView"
+                        android:textAlignment="center"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/kcalTextview"
+                    android:layout_width="200dp"
+                    android:layout_height="28dp"
+                    android:background="#FFFFFF"
+                    android:paddingTop="5dp"
+                    android:text="TextView"
+                    android:textAlignment="center"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="500dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/takekcalTextview"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            android:background="#E7EFE5"
+            android:paddingTop="10dp"
+            android:text="텍스트"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/remainkcalTextview"
+            android:layout_width="320dp"
+            android:layout_height="60dp"
+            android:background="#E7EFE5"
+            android:paddingTop="10dp"
+            android:text="텍스트"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <android.widget.Button
+            android:id="@+id/food_recommend"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:text="음식 추천 바로가기>" />
+
+    </LinearLayout>
 </FrameLayout>
