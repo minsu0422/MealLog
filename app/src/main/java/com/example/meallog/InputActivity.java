@@ -1,6 +1,7 @@
 package com.example.meallog;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,11 +29,11 @@ public class InputActivity extends AppCompatActivity {
 
         // Setup confirmButton click listener
         confirmButton.setOnClickListener(v -> {
-            Intent intent = new Intent(InputActivity.this, MainScreenActivity.class);
-            intent.putExtra("name", nameInput.getText().toString());
-            intent.putExtra("age", ageInput.getText().toString());
-            intent.putExtra("height", heightInput.getText().toString());
-            intent.putExtra("weight", weightInput.getText().toString());
+            // Retrieve input values
+            String name = nameInput.getText().toString();
+            int age = Integer.parseInt(ageInput.getText().toString());
+            int height = Integer.parseInt(heightInput.getText().toString());
+            int weight = Integer.parseInt(weightInput.getText().toString());
 
             // Get selected gender
             int selectedGenderId = genderGroup.getCheckedRadioButtonId();
@@ -42,10 +43,25 @@ public class InputActivity extends AppCompatActivity {
             } else if (selectedGenderId == R.id.maleButton) {
                 gender = "Male";
             }
-            intent.putExtra("gender", gender);
 
+            // Save values to SharedPreferences
+            SharedPreferences sharedPreferences = getSharedPreferences("UserPreferences", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("name", name);
+            editor.putInt("age", age);
+            editor.putInt("height", height);
+            editor.putInt("weight", weight);
+            editor.putString("gender", gender);
+            editor.apply();
+
+            // Pass values to MainScreenActivity
+            Intent intent = new Intent(InputActivity.this, MainScreenActivity.class);
+            intent.putExtra("name", name);
+            intent.putExtra("age", age);
+            intent.putExtra("height", height);
+            intent.putExtra("weight", weight);
+            intent.putExtra("gender", gender);
             startActivity(intent);
         });
     }
 }
-
